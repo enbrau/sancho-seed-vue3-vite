@@ -1,0 +1,26 @@
+{
+  "name": "sancho-seed-vue3-vite",
+  "version": "1.0.0",
+  "description": "An out-of-the-box vue3 scalfold without any UI libraries (based on vite)",
+  "license": "BSD-2-Clause",
+  "author": {
+    "name": "enbrau",
+    "email": "admin@enbrau.com",
+    "url": "https://github.com/enbrau"
+  },
+  "repository": {
+    "url": "https://github.com/enbrau/sancho-seed-vue3-vite.git"
+  },
+  "scripts": {
+    "dev": "vite --mode=development",
+    "dev:online": "vite --mode=development",
+    "build": "vite build --mode=production"
+  },
+  "dependencies": {
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "vite": "^2.9.9"
+  }
+}
