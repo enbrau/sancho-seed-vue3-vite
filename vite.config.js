@@ -32,6 +32,13 @@ export default defineConfig({
       }
     }
   ],
+  resolve: {
+    // https://cn.vitejs.dev/config/#resolve-extensions
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
+    alias: {
+      '@': path.join(__dirname, 'src')
+    }
+  },
   server: {
     port: 9527,
     strictPort: false

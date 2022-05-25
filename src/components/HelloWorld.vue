@@ -26,7 +26,12 @@ const count = ref(0)
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Documentation</a>
   </p>
 
+  <p>
+    Window Size: {{$store.state.app.windowInnerWidth}} x {{$store.state.app.windowInnerHeight}}
+  </p>
+
   <button type="button" @click="count++">count is: {{ count }}</button>
+  
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
