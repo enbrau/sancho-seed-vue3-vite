@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { demoApi } from '@/api/modules/demo.js'
 import { getAvailableLanguages, switchLanguage } from '@/i18n'
 
 defineProps({
@@ -11,6 +12,12 @@ function changeLanguage(locale) {
   switchLanguage(locale)
   window.location.reload()
 }
+
+const apiMsg = ref('loading...')
+setTimeout(async () => {
+  const data = await demoApi()
+  apiMsg.value = data.msg
+}, 2000)
 </script>
 
 <template>
@@ -37,6 +44,10 @@ function changeLanguage(locale) {
 
   <p>
     I18n: <button v-for="(lang, $key) in langs" :key="lang" @click="changeLanguage($key)">{{lang}}</button>
+  </p>
+
+  <p>
+    {{apiMsg}}
   </p>
   
   <p>

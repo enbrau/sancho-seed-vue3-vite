@@ -6,6 +6,7 @@ import settings from './settings'
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
+  require('dotenv').config({ path: `./.env.${process.env.NODE_ENV}` })
   const config = {
     base: './',
     build: {
@@ -44,10 +45,10 @@ export default defineConfig(() => {
     server: {
       host: '0.0.0.0',
       port: 9527,
-      strictPort: false,
+      strictPort: true,
       proxy: {
-        '/mock': {
-          target: `http://localhost:9527`,
+        [process.env.VITE_CONTEXT_PATH]: {
+          target: process.env.VITE_HOST,
           changeOrigin: true,
           ws: true,
           secure: false,
@@ -57,8 +58,8 @@ export default defineConfig(() => {
       }
     }
   }
-  
-  if (process.env.NODE_ENV !== 'production') {
+
+  if (process.env.NODE_ENV === 'development') {
     config.plugins.push(
       // https://github.com/anncwb/vite-plugin-mock/
       viteMockServe({
